@@ -3,43 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Popup Example with Tailwind CSS</title>
+    <title>Slide Up on Scroll</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
     <style>
-        /* Custom styles for sliding popup */
-        #popup {
-            transform: translateY(100%); /* Start off-screen */
-            transition: transform 0.5s ease-in-out; /* Smooth transition */
+        /* Custom styles */
+        .slide-up {
+            transform: translateY(100px); /* Start off-screen */
+            opacity: 0;
+            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Smooth transition */
         }
-        #popup.show {
-            transform: translateY(0); /* Slide in */
+        .slide-up.visible {
+            transform: translateY(0); /* Slide to the original position */
+            opacity: 1;
         }
     </style>
 </head>
 <body class="bg-gray-100">
 
-    <!-- Popup -->
-    <div id="popup" class="fixed bottom-4 left-1/2 transform -translate-x-1/2 w-80 p-4 bg-white border border-gray-300 shadow-lg rounded-lg hidden">
-        <h2 class="text-lg font-bold mb-2">Popup Title</h2>
-        <p>This is a popup that slides up from the bottom.</p>
-        <button id="close-popup" class="mt-2 px-4 py-2 bg-red-500 text-white rounded">Close</button>
+    <!-- Content to enable scrolling -->
+    <div id="content" class="h-[2000px] p-4">
+        <div class="slide-up p-4 mb-4 bg-white border border-gray-300 shadow-lg rounded-lg">
+            <h2 class="text-lg font-bold mb-2">Div 1</h2>
+            <p>This is the first div element that will slide up when you scroll.</p>
+        </div>
+        <div class="slide-up p-4 mb-4 bg-white border border-gray-300 shadow-lg rounded-lg">
+            <h2 class="text-lg font-bold mb-2">Div 2</h2>
+            <p>This is the second div element that will slide up when you scroll.</p>
+        </div>
+        <div class="slide-up p-4 mb-4 bg-white border border-gray-300 shadow-lg rounded-lg">
+            <h2 class="text-lg font-bold mb-2">Div 3</h2>
+            <p>This is the third div element that will slide up when you scroll.</p>
+        </div>
+        <div class="slide-up p-4 mb-4 bg-white border border-gray-300 shadow-lg rounded-lg">
+            <h2 class="text-lg font-bold mb-2">Div 3</h2>
+            <p>This is the third div element that will slide up when you scroll.</p>
+        </div>
+        <div class="slide-up p-4 mb-4 bg-white border border-gray-300 shadow-lg rounded-lg">
+            <h2 class="text-lg font-bold mb-2">Div 3</h2>
+            <p>This is the third div element that will slide up when you scroll.</p>
+        </div>
+        <div class="slide-up p-4 mb-4 bg-white border border-gray-300 shadow-lg rounded-lg">
+            <h2 class="text-lg font-bold mb-2">Div 3</h2>
+            <p>This is the third div element that will slide up when you scroll.</p>
+        </div>
+        <div class="slide-up p-4 mb-4 bg-white border border-gray-300 shadow-lg rounded-lg">
+            <h2 class="text-lg font-bold mb-2">Div 3</h2>
+            <p>This is the third div element that will slide up when you scroll.</p>
+        </div>
+        <div class="slide-up p-4 mb-4 bg-white border border-gray-300 shadow-lg rounded-lg">
+            <h2 class="text-lg font-bold mb-2">Div 3</h2>
+            <p>This is the third div element that will slide up when you scroll.</p>
+        </div>
+        <div class="slide-up p-4 mb-4 bg-white border border-gray-300 shadow-lg rounded-lg">
+            <h2 class="text-lg font-bold mb-2">Div 3</h2>
+            <p>This is the third div element that will slide up when you scroll.</p>
+        </div>
+        <div class="slide-up p-4 mb-4 bg-white border border-gray-300 shadow-lg rounded-lg">
+            <h2 class="text-lg font-bold mb-2">Div 3</h2>
+            <p>This is the third div element that will slide up when you scroll.</p>
+        </div>
     </div>
 
-    <!-- Trigger Button -->
-    <button id="open-popup" class="px-4 py-2 bg-blue-500 text-white rounded">Open Popup</button>
-
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
-            // Show the popup
-           
-                $('#popup').removeClass('hidden').addClass('bg-red-500');
-            
+            var $slideUpElements = $('.slide-up');
+            var offset = 200; // Adjust this value to control when the div should slide up
 
-            // Hide the popup
-            $('#close-popup').click(function() {
-                $('#popup').removeClass('show').addClass('hidden');
+            $(window).scroll(function() {
+                var scrollTop = $(window).scrollTop();
+
+                $slideUpElements.each(function() {
+                    var $this = $(this);
+                    var elementOffset = $this.offset().top;
+
+                    if (scrollTop + $(window).height() > elementOffset + offset) {
+                        $this.addClass('visible');
+                    } else {
+                        $this.removeClass('visible');
+                    }
+                });
             });
+
+            // Trigger scroll event on page load to handle initial visibility
+            $(window).trigger('scroll');
         });
     </script>
 

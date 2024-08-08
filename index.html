@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    
+    <title>Jquery</title>
+
+   
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+   
+        $(document).ready(function() {
+                 // Show the popup
+
+         $('#lead').animate({
+            fontSize: '100px',
+            marginTop: '500px',
+            backgroundColor: 'white'
+        }, 2000)
+
+        setTimeout(() => {
+            $('#lead').animate({
+            marginTop: '300px'
+        }, 500,'swing')
+        }, 2400);
+        
+       setTimeout(function(){
+        $('.lead').animate({
+            marginTop: '50px'
+        }, 400, 'swing')
+       }, 1600)
+       
+       
+       var $slideUpElements = $('.slide-up');
+            var offset = 100; // Adjust this value to control when the div should slide up
+
+            $(window).scroll(function() {
+                var scrollTop = $(window).scrollTop();
+
+                $slideUpElements.each(function() {
+                    var $this = $(this);
+                    var elementOffset = $this.offset().top;
+
+                    if (scrollTop + $(window).height() > elementOffset + offset) {
+                        $this.addClass('visible');
+                    } else {
+                        $this.removeClass('visible');
+                    }
+                });
+            });
+
+            // Trigger scroll event on page load to handle initial visibility
+            $(window).trigger('scroll');
+        
+    
+    });
+
+    
+</script>
+<style>
+    #lead{
+        margin-top: -300px;
+        font-size: 1000px;
+    }
+    .lead{
+        margin-top: 1000px;
+        transition: all 1s ease-in-out;
+    }
+    /* .popup{
+        margin-top: 100px;
+
+    } */
+
+    .slide-up {
+            transform: translateY(100px); /* Start off-screen */
+            opacity: 0;
+            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Smooth transition */
+        }
+        .slide-up.visible {
+            transform: translateY(0); /* Slide to the original position */
+            opacity: 1;
+        }
+</style>
+  </head>
+  <body class="bg-gray-100 ">
+    <header>
+      <nav
+        class="bg-transparent flex flex-row fixed top:0 left:0 w-full p-10 items center"
+      >
+        <div class="flex justify-center w-1/2">
+          <h1 class="text-2xl text-orange-500 font-bold">LEADING INSIGHT</h1>
+        </div>
+        <ul
+          class="flex flex-row justify-end w-1/2 space-x-10 font-bold text-lg"
+        >
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Our Work</a></li>
+          <li><a href="#">Our Team</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="w-full pt-0 mt-0" style="top: 0; margin-top: 0px; padding-top: 0px;">
+      <div id="content" class="w-full">
+        <div class="w-full flex justify-center slide-up" >
+          <h1 id="lead" class="text-6xl font-bold">LEADING INSIGHT</h1>
+        </div>
+        <div  class=" flex flex-col w-full p-10 items-end lead" >
+          <div class="flex flex-row w-full">
+              <div class="flex flex-col justify-start w-1/3 " >
+                  <p class="font-bold">What we do</p>
+                  <h6 class="text-6xl font-bold">Our approach to success</h6>
+                </div>
+                <div class="w-2/3 flex justify-end pl-60">
+                  <p class="text-xl">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit nam
+                    ducimus distinctio cum blanditiis repellat dolorem aliquid magni ex
+                    corrupti. Assumenda quas blanditiis laboriosam iure, ratione
+                    quibusdam numquam cumque officiis excepturi vitae, ipsam est natus
+                    quos enim. Voluptate voluptates ex quibusdam ipsum? Hic nihil at, ex
+                    tempore repellat esse illo.
+                  </p>
+                </div>
+          </div>
+          <div class="slide-up flex flex-row w-full p-20 space-x-10 items-end">
+              <div  class=" w-[30%]  rounded-lg bg-white">
+                  <img src="./images/house1.jpg" alt="" class="w-full h-60 rounded-lg">
+                  <div class="m-5 w-full">
+                      <h1 class="font-bold text-lg">Research & Practice</h1>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, incidunt?</p>
+                  </div>
+              </div>
+  
+              <div  class=" w-[40%]  rounded-lg bg-white">
+                  <img src="./images/house1.jpg" alt="" class="w-full h-72 rounded-lg">
+                  <div class="m-3 w-full">
+                      <h1 class="font-bold text-lg">Research & Practice</h1>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, incidunt?</p>
+                  </div>
+  
+              </div>
+  
+              <div  class=" w-[30%]  rounded-lg bg-white">
+                  <img src="./images/house1.jpg" alt="" class="w-full h-60 rounded-lg">
+                  <div class="m-5 w-full">
+                      <h1 class="font-bold text-lg">Research & Practice</h1>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, incidunt?</p>
+                  </div>
+  
+              </div>
+          
+        </div>
+        </div>
+  
+      </div>
+      
+      
+
+    </main>
+   
+   
+  </body>
+
+  
+</html>
