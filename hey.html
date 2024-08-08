@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup Example with Tailwind CSS</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles for sliding popup */
+        #popup {
+            transform: translateY(100%); /* Start off-screen */
+            transition: transform 0.5s ease-in-out; /* Smooth transition */
+        }
+        #popup.show {
+            transform: translateY(0); /* Slide in */
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Popup -->
+    <div id="popup" class="fixed bottom-4 left-1/2 transform -translate-x-1/2 w-80 p-4 bg-white border border-gray-300 shadow-lg rounded-lg hidden">
+        <h2 class="text-lg font-bold mb-2">Popup Title</h2>
+        <p>This is a popup that slides up from the bottom.</p>
+        <button id="close-popup" class="mt-2 px-4 py-2 bg-red-500 text-white rounded">Close</button>
+    </div>
+
+    <!-- Trigger Button -->
+    <button id="open-popup" class="px-4 py-2 bg-blue-500 text-white rounded">Open Popup</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Show the popup
+           
+                $('#popup').removeClass('hidden').addClass('bg-red-500');
+            
+
+            // Hide the popup
+            $('#close-popup').click(function() {
+                $('#popup').removeClass('show').addClass('hidden');
+            });
+        });
+    </script>
+
+</body>
+</html>
