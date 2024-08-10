@@ -1,95 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slide Up on Scroll</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        /* Custom styles */
-        .slide-up {
-            transform: translateY(100px); /* Start off-screen */
-            opacity: 0;
-            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Smooth transition */
-        }
-        .slide-up.visible {
-            transform: translateY(0); /* Slide to the original position */
-            opacity: 1;
-        }
-    </style>
-</head>
-<body class="bg-gray-100">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Content to enable scrolling -->
-    <div id="content" class="h-[2000px] p-4">
-        <div class="slide-up p-4 mb-4 bg-white border border-gray-300 shadow-lg rounded-lg">
-            <h2 class="text-lg font-bold mb-2">Div 1</h2>
-            <p>This is the first div element that will slide up when you scroll.</p>
-        </div>
-        <div class="slide-up p-4 mb-4 bg-white border border-gray-300 shadow-lg rounded-lg">
-            <h2 class="text-lg font-bold mb-2">Div 2</h2>
-            <p>This is the second div element that will slide up when you scroll.</p>
-        </div>
-        <div class="slide-up p-4 mb-4 bg-white border border-gray-300 shadow-lg rounded-lg">
-            <h2 class="text-lg font-bold mb-2">Div 3</h2>
-            <p>This is the third div element that will slide up when you scroll.</p>
-        </div>
-        <div class="slide-up p-4 mb-4 bg-white border border-gray-300 shadow-lg rounded-lg">
-            <h2 class="text-lg font-bold mb-2">Div 3</h2>
-            <p>This is the third div element that will slide up when you scroll.</p>
-        </div>
-        <div class="slide-up p-4 mb-4 bg-white border border-gray-300 shadow-lg rounded-lg">
-            <h2 class="text-lg font-bold mb-2">Div 3</h2>
-            <p>This is the third div element that will slide up when you scroll.</p>
-        </div>
-        <div class="slide-up p-4 mb-4 bg-white border border-gray-300 shadow-lg rounded-lg">
-            <h2 class="text-lg font-bold mb-2">Div 3</h2>
-            <p>This is the third div element that will slide up when you scroll.</p>
-        </div>
-        <div class="slide-up p-4 mb-4 bg-white border border-gray-300 shadow-lg rounded-lg">
-            <h2 class="text-lg font-bold mb-2">Div 3</h2>
-            <p>This is the third div element that will slide up when you scroll.</p>
-        </div>
-        <div class="slide-up p-4 mb-4 bg-white border border-gray-300 shadow-lg rounded-lg">
-            <h2 class="text-lg font-bold mb-2">Div 3</h2>
-            <p>This is the third div element that will slide up when you scroll.</p>
-        </div>
-        <div class="slide-up p-4 mb-4 bg-white border border-gray-300 shadow-lg rounded-lg">
-            <h2 class="text-lg font-bold mb-2">Div 3</h2>
-            <p>This is the third div element that will slide up when you scroll.</p>
-        </div>
-        <div class="slide-up p-4 mb-4 bg-white border border-gray-300 shadow-lg rounded-lg">
-            <h2 class="text-lg font-bold mb-2">Div 3</h2>
-            <p>This is the third div element that will slide up when you scroll.</p>
-        </div>
-    </div>
+    <title>Jquery</title>
 
-    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        $(document).ready(function() {
-            var $slideUpElements = $('.slide-up');
-            var offset = 200; // Adjust this value to control when the div should slide up
+    tops = true
+      $(document).ready(function () {
+        
+        
+        $(window).scroll(function() {
+            var windowBottom = $(window).scrollTop() + $(window).height();
+           
+            var targetTop = $('#content').offset().top;
+            
+            if (windowBottom >= targetTop + 780) {
+                $('#content').removeClass('hidden');
+                 
+              $('#page1').addClass('hidden');
+              
+              if (tops){
+                window.scrollTo({top: 0, behavior:"smooth"});
+                console.log(tops);
+                
+                tops = false
+                }
+              
 
-            $(window).scroll(function() {
-                var scrollTop = $(window).scrollTop();
 
-                $slideUpElements.each(function() {
-                    var $this = $(this);
-                    var elementOffset = $this.offset().top;
+                // Text appear animation start
+                
+        $("#lead").animate(
+          {
+            fontSize: "50px",
+            marginTop: "500px",
+            backgroundColor: "white",
+            marginLeft: "0px",
+            fontWeight: "700",
+            color: "black",
+          },
+          2000
+        );
 
-                    if (scrollTop + $(window).height() > elementOffset + offset) {
-                        $this.addClass('visible');
-                    } else {
-                        $this.removeClass('visible');
-                    }
-                });
-            });
+        setTimeout(() => {
+        $('#nav-bar').removeClass('text-white')
+        $('#nav-bar').addClass('text-black')
+        }, 1500)
 
-            // Trigger scroll event on page load to handle initial visibility
-            $(window).trigger('scroll');
+        setTimeout(() => {
+          $("#lead").animate(
+            {
+              marginTop: "300px",
+            },
+            500,
+            "swing"
+          );
+        }, 2400);
+
+        setTimeout(function () {
+          $(".lead").animate(
+            {
+              marginTop: "50px",
+            },
+            400,
+            "swing"
+          );
+        }, 2000);
+
+        setTimeout(() => {
+        $('#lead').removeClass('bg')
+      }, 3000)
+        // Text appear animation end
+            } else if (windowBottom < targetTop) {
+
+              $('#content').addClass('hidden');
+                //  setTimeout(() => {
+              $('#page1').removeClass('hidden');
+              
+            // }, 5000)
+
+            } 
         });
-    </script>
+        
 
-</body>
+       
+
+     
+      });
+    </script>
+    <style>
+      #lead {
+        margin-top: -3000px;
+        font-size: 7000px;
+        margin-left: -2900px;
+        font-weight: 1000;
+        
+      }
+
+      .bg{
+        background: url(./bg2.jpg);
+        background-size: 1800px 1201px;
+        background-position: left;
+        background-repeat: no-repeat;
+        background-blend-mode: normal;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        background-attachment: fixed;
+      }
+      .lead {
+        margin-top: 150px;
+        transition: all 1s ease-in-out;
+      }
+      /* .popup{
+        margin-top: 100px;
+
+    } */
+
+      .slide-up {
+        transform: translateY(100px); /* Start off-screen */
+        opacity: 0;
+        transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Smooth transition */
+      }
+      .slide-up.visible {
+        transform: translateY(0); /* Slide to the original position */
+        opacity: 1;
+      }
+
+      #page1 {
+        background: url(./bg3.png) ;
+        background-size: cover;
+        /* background-position: center; */
+        
+
+      }
+      .pp{
+        font-family:pp eiko ;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <header>
+      <nav
+        class="bg-opacity-10 bg-[#222c3d] flex flex-row fixed top:0 left:0 w-full pt-10 pb-4 px-20 pl-48 items center"
+      >
+        <div class="flex justify-start w-[30%] items-center">
+          <h1 class="text-2xl text-yellow-500 flex flex-row items-end"> <img src="./icon.png" alt=""> LEADING  <span class="text-orange-500 font-bold">INSIGHT</span> </h1>
+        </div>
+        <ul id="nav-bar"
+          class="flex flex-row justify-end w-[80%] space-x-10  text-lg font-bold text-white items-center
+          "
+        >
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Our Work</a></li>
+          <li><a href="#">Our Team</a></li>
+          <li><button class="flex justify-center items-center bg-orange-500 px-5 py-3 rounded-full text-black">Contact</button></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main
+      class="w-full pt-0 mt-0"
+      style="top: 0; margin-top: 0px; padding-top: 0px"
+    >
+      <div id="page1" class="w-full h-[1000px] flex flex-row p-20 pl-48 text-white">
+        <div id="first-section" class="flex  flex-col w-[60%] h-full items-start justify-center space-y-10">
+          <h1 class="text-6xl">Helping you <span class="pp text-[#fca503]">navigate</span> the changing world</h1>
+          <p>
+            We're a team of management advisors committed to driving meaningful
+            change for leaders, their organisations and society.
+          </p>
+
+          <button class="flex justify-center items-center bg-orange-500 px-5 py-3 rounded-full text-black font-bold">
+            Get in touch
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+            </svg>
+            
+          </button>
+        </div>
+      </div>
+      <div id="content" class="w-full hidden">
+        <div class="w-full flex justify-center">
+          <h1 id="lead" class=" bg text-6xl font-bold">LEADING INSIGHT</h1>
+        </div>
+        <div class="flex flex-col w-full p-10 items-end lead">
+          <div class="flex flex-row w-full ">
+            <div class="flex flex-col justify-start w-1/3">
+              <p class="font-bold">What we do</p>
+              <h6 class="text-6xl font-bold">Our approach to success</h6>
+            </div>
+            <div class="w-2/3 flex justify-end pl-60">
+              <p class="text-xl">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit
+                nam ducimus distinctio cum blanditiis repellat dolorem aliquid
+                magni ex corrupti. Assumenda quas blanditiis laboriosam iure,
+                ratione quibusdam numquam cumque officiis excepturi vitae, ipsam
+                est natus quos enim. Voluptate voluptates ex quibusdam ipsum?
+                Hic nihil at, ex tempore repellat esse illo.
+              </p>
+            </div>
+          </div>
+          <div class=" flex flex-row w-full p-20 space-x-10 items-center">
+            <div class="w-[30%] rounded-lg bg-white">
+              <img
+                src="./house1.jpg"
+                alt=""
+                class="w-full h-60 rounded-t-lg"
+              />
+              <div class="m-5 w-full">
+                <h1 class="font-bold text-lg">Research & Practice</h1>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Natus, incidunt?
+                </p>
+              </div>
+            </div>
+
+            <div class="w-[40%] flex flex-col rounded-lg bg-white">
+              <img
+                src="./house1.jpg"
+                alt=""
+                class="w-full h-72 rounded-t-lg"
+              />
+              <div class="m-4 p-2 w-full">
+                <h1 class="font-bold text-lg">Research & Practice</h1>
+                <p class="mb-10">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Natus, incidunt?
+                </p>
+                <a href="#" class="text-orange-500">Read More</a>
+              </div>
+              
+            </div>
+
+            <div class="w-[30%] rounded-lg bg-white">
+              <img
+                src="./house1.jpg"
+                alt=""
+                class="w-full h-60 rounded-t-lg"
+              />
+              <div class="m-5 w-full">
+                <h1 class="font-bold text-lg">Research & Practice</h1>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Natus, incidunt?
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </main>
+  </body>
 </html>

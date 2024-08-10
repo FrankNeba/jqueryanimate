@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appear on Scroll</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .hidden {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .visible {
+            opacity: 1;
+        }
+        .content {
+            height: 2000px; /* Just to ensure scrolling */
+        }
+        .scroll-target {
+            margin-top: 1000px; /* Scroll to this point to see the div */
+        }
+    </style>
+</head>
+<body class="bg-gray-200 flex items-center justify-center">
+    <div class="content">
+        <div id="target" class="scroll-target">
+            <div id="appearingDiv" class="hidden bg-blue-500 p-6 rounded-lg text-white">
+                This div appears on scroll!
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(window).scroll(function() {
+            var windowBottom = $(window).scrollTop() + $(window).height();
+            var targetTop = $('#target').offset().top;
+            
+            if (windowBottom > targetTop + 350) {
+                $('#appearingDiv').addClass('visible').removeClass('hidden');
+            } else {
+                $('#appearingDiv').removeClass('visible').addClass('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
