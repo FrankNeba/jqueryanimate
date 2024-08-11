@@ -25,3 +25,7 @@ body{
   .hidden{
     display:none;
   }
+
+  .pp{
+    font-family: pp eiko;
+  }

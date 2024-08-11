@@ -12,8 +12,6 @@ function loadNextPage(){
         tops = false
     }//scrolls down when next page loads
               
-
-
     // Text appear animation start
     // Set id of "LEADING INSIGHT" text to block2
     $('#leading-text-container').css('display','flex')
@@ -31,7 +29,7 @@ function loadNextPage(){
         );
 
         $('#leading-text-container').animate({
-            marginTop: "-90%",
+            marginTop: "-100%",
             marginLeft: "0%",
             width: '100%',
             height: '134vh',
@@ -39,7 +37,7 @@ function loadNextPage(){
 
         setTimeout(() => {
             $('#leading-text-container').animate({
-            marginTop: "-100%",
+            marginTop: "-120%",
         }, 500)
 
             $('#content').removeClass('hidden')
@@ -52,23 +50,9 @@ function loadNextPage(){
         $('#nav-bar').css('color', 'black')
         // $('#bg').css('paddingTop','60px')
         }, 2500)
-        
-        $('#leading-text-container').addClass('bgg')
 
-        setTimeout(() => {
-        $('#block2').removeClass('bg')
-        }, 3400)
         animate = true
     }
-   
-
-     // change color of links in nav-bar
-
-
-    
-
-    
-        // Text appear animation end
 
         nextpage = true
 } // load next page ends
