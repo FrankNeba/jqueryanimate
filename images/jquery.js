@@ -77,6 +77,8 @@ function loadNextPage(){
 
 // Load previous page starts
 function loadPreviousPage(){
+
+    
     if(!animate){
         $("#leading-text").animate(
        {
@@ -91,7 +93,7 @@ function loadPreviousPage(){
 
        $('#leading-text-container').animate({
            marginTop: "-8850px",
-           marginLeft: "-670%",
+           marginLeft: "0%",
            width: '100%',
            height: '100%',
        }, 2000)
@@ -111,6 +113,11 @@ function loadPreviousPage(){
        setTimeout(() => {
        $('#nav-bar').css('color', 'white')
        }, 1500) // change color of links in nav-bar
+       setTimeout(() =>{
+        $('#leading-text-container').css('display','none')
+        $('#leading-text-container').css('marginLeft','300px')
+       },2100);
+       
    }
     
       $(document).ready(function () {
