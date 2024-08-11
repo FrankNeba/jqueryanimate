@@ -1,0 +1,26 @@
+body{
+    background: url(./bg3.png);
+    background-repeat: no-repeat;
+}
+
+#leading-text{
+    color: black;
+    background-color: white;
+    padding: 20px;
+    font-weight: 1000;
+    font-size: 3500px;
+    mix-blend-mode: screen;
+    width: 100%;
+  }
+
+  #leading-text-container{
+   
+    margin-left: -670%;
+    display: none;
+    text-align:center ;
+    margin-top: -8850px;
+  }
+
+  .hidden{
+    display:none;
+  }

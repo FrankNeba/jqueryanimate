@@ -1,0 +1,90 @@
+#block2 {
+    margin-top: -3000px;
+    font-size: 7000px;
+    margin-left: -2900px;
+    font-weight: 1000;
+    
+  }
+
+  .hidden{
+    display: none;
+  }
+
+  #bg{
+    color: black;
+    background-color: white;
+    padding: 20px;
+    font-weight: 100;
+    font-size: 50px;
+    margin-top: -5000px;
+    margin-left: -5000px;
+    mix-blend-mode: screen;
+    /* position: absolute; */
+    /* justify-items: center;
+    justify-content: center; */
+    /* overflow: hidden; */
+    width: 100%;
+    /* transform: translate(30%, -30%); */
+    padding: 0px;
+   
+
+    
+  }
+  /* .bgdiv{
+    width: 400vh;
+    height: 200vh;
+    position: absolute;
+    overflow: hidden;
+    justify-items: center;
+    justify-content: center;
+    margin-top: 200px;  
+    top: 0;
+    transform: translate(-30%, -50%);
+    padding: 0%;
+} */
+  .block2-next-section {
+    margin-top: 150px;
+    transition: all 1s ease-in-out;
+  }
+
+  .leading{
+    padding: 100px;
+    /* position: absolute; */
+    background-color: rgb(18, 16, 16);
+  }
+  /* .popup{
+    margin-top: 100px;
+
+} */
+
+
+  #block1 {
+    background: url(./bg3.png) ;
+    background-size: cover;
+    position: fixed;
+    width: 100%;
+    /* background-position: center; */
+    
+
+  }
+  .pp{
+    font-family:pp eiko ;
+  }
+
+  nav{
+    
+  }
+
+
+
+
+
+
+  float: left;
+    margin-left: -700%;
+    display: flex;
+    text-align:center ;
+    margin-top: -8850px;
+
+
+    3500px
