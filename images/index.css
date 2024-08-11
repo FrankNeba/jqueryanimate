@@ -11,6 +11,7 @@ body{
     font-size: 3500px;
     mix-blend-mode: screen;
     width: 100%;
+    position: relative;
   }
 
   #leading-text-container{
