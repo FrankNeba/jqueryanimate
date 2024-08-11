@@ -31,7 +31,7 @@ function loadNextPage(){
         );
 
         $('#leading-text-container').animate({
-            marginTop: "-100%",
+            marginTop: "-90%",
             marginLeft: "0%",
             width: '100%',
             height: '134vh',
@@ -39,7 +39,7 @@ function loadNextPage(){
 
         setTimeout(() => {
             $('#leading-text-container').animate({
-            marginTop: "-110%",
+            marginTop: "-100%",
         }, 500)
 
             $('#content').removeClass('hidden')
@@ -65,18 +65,9 @@ function loadNextPage(){
      // change color of links in nav-bar
 
 
-    setTimeout(function () {
-          $(".block2-next-section").animate(
-            {
-              marginTop: "50px",
-            },
-            400
-          );
-        }, 800);//animates the section below LEADING INSIGHT
+    
 
-    setTimeout(() => {
-        $('#block2').removeClass('bg')
-        }, 3400)
+    
         // Text appear animation end
 
         nextpage = true
