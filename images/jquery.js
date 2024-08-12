@@ -63,28 +63,28 @@ function loadNextPage() {
 }
 
 function loadPreviousPage() {
-    if (!animate) {
+    if ($(window).scrollTop()<10) {
         console.log('Loading previous page...');
 
         // Ensure the text container is visible and reset its position
-        $('#leading-text-container').css({
-            display: 'flex',
-            marginTop: "-6550px", // Changed from percentage to pixels
-            marginLeft: "-1830px", // Changed from percentage to pixels
-            fontSize: "5500px",
-        });
+        // $('#leading-text-container').css({
+        //     display: 'flex',
+        //     marginTop: "-6550px", // Changed from percentage to pixels
+        //     marginLeft: "-1830px", // Changed from percentage to pixels
+        //     fontSize: "5500px",
+        // });
 
-        $('#leading-text').css({
-            paddingTop: "550px",
-            paddingLeft: "0px",
-            paddingBottom: "200px",
-            fontWeight: "1000",
-        });
+        // $('#leading-text').css({
+        //     paddingTop: "550px",
+        //     paddingLeft: "0px",
+        //     paddingBottom: "200px",
+        //     fontWeight: "1000",
+        // });
 
         // Animate leading text to fade out and scroll up
         $('#leading-text-container').animate({
-            marginTop: "-6550px", // Changed from percentage to pixels
-            marginLeft: "-1830px", // Changed from percentage to pixels
+            marginTop: "-6850px", // Changed from percentage to pixels
+            marginLeft: "-21830px", // Changed from percentage to pixels
             fontSize: "5500px",
         }, 3000, 'swing');
 
@@ -136,7 +136,7 @@ $(window).scroll(function() {
     
     // Trigger page load when scrolled to the top
     var scrollPosition = $(window).scrollTop();
-    if (scrollPosition <= 10 && nextpage) { // Adjust the threshold as needed
+    if (scrollPosition === 0 && nextpage) { // Adjust the threshold as needed
         console.log('Scroll position:', scrollPosition, 'Loading previous page...');
         loadPreviousPage();
     }
