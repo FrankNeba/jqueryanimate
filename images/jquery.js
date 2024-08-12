@@ -7,7 +7,7 @@ function loadNextPage(){
     // $('#content').removeClass('hidden');
     // $('#block1').addClass('hidden');
     if (tops){
-        window.scrollTo({top: 80, behavior:"smooth"});
+        window.scrollTo({top: 150, behavior:"smooth"});
         console.log(tops);
         tops = false
     }//scrolls down when next page loads
@@ -27,7 +27,7 @@ function loadNextPage(){
             },300)
 
         $('#leading-text-container').animate({
-            marginTop: "-110%",
+            marginTop: "-80%",
             marginLeft: "0%",
             width: '100%',
             fontSize: "50px",
@@ -35,7 +35,7 @@ function loadNextPage(){
 
         setTimeout(() => {
             $('#leading-text-container').animate({
-            marginTop: "-120%",
+            marginTop: "-90%",
             }, 400)
 
             $('#leading-text').animate({
@@ -67,43 +67,51 @@ function loadPreviousPage(){
     
     if(!animate){
         $("#leading-text").animate(
-       {
-       fontSize: "3500px",
-       marginTop: "0px",
-       marginLeft: "0px",
-       fontWeight: "1000",
-       padding: '20px'
-         },
-       100,
-       'linear'
-       );
+            {
+                // paddingRight: "800px"
+            }, 2700 , 'swing',  
+        );
+
+        // $("#leading-text").animate(
+        //     {
+        //         paddingLeft: "-400px"
+        //     }, 2700 , 'swing',  
+        // );
 
        $('#leading-text-container').animate({
-           marginTop: "-6550px",
-           marginLeft: "-1800%",
-           width: '100%',
-           height: '100%',
-       }, 500)
+        marginTop: "-6550px",
+        // marginRight: "800%",
+        marginLeft: "-40%",
+        width: '100%',
+        fontSize: "5500px",
+    }, 2000, 'swing')
 
        setTimeout(() => {
 
            $('#content').addClass('hidden')
-       }, 500)
+           $('#leading-text-container').css('display','none')
+       }, 3000)
+
+       setTimeout(() => {
+       $('#leading-text-container').css('marginLeft','-1830%')
+    }, 3100)
        
 
        setTimeout(() => {
            $('#first-section').removeClass('hidden')
            }, 10)
+
+        
        animate = true
        tops = true
        
        setTimeout(() => {
        $('#nav-bar').css('color', 'white')
        }, 100) // change color of links in nav-bar
-       setTimeout(() =>{
-        $('#leading-text-container').css('display','none')
-        $('#leading-text-container').css('marginLeft','300px')
-       },100);
+    //    setTimeout(() =>{
+        
+    //     $('#leading-text-container').css('marginLeft','300px')
+    //    },100);
        
    }
     
