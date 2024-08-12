@@ -18,18 +18,19 @@ function loadNextPage(){
     if(!animate){
          $("#leading-text").animate(
         {
-        fontSize: "50px",
-        paddingLeft: "50px",
-        // fontWeight: "700",
-          },
-        3000
-        , 'swing'
+            paddingLeft: "400px"
+          }, 2700 , 'swing',  
         );
+
+        $('#leading-text').animate({
+            paddingLeft: "50px",
+            },300)
 
         $('#leading-text-container').animate({
             marginTop: "-110%",
             marginLeft: "0%",
             width: '100%',
+            fontSize: "50px",
         }, 3000, 'swing')
 
         setTimeout(() => {
