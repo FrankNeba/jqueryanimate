@@ -70,7 +70,7 @@ function loadPreviousPage() {
         // Animate leading text to fade out and scroll up
         $('#leading-text-container').animate({
             marginTop: "-6850px", 
-            marginLeft: "-21830px", 
+            marginLeft: "-22330px", 
             fontSize: "5500px",
         }, 3000, 'swing');
 
