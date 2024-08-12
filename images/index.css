@@ -24,12 +24,12 @@ body{
     display: none;
     text-align:center ;
     margin-top: -6850px;
-    z-index: 200;
+    z-index: auto;
    
   }
 
   #block1{
-    z-index: 100;
+    z-index: auto;
   }
 
   .hidden{
