@@ -7,7 +7,7 @@ function loadNextPage(){
     // $('#content').removeClass('hidden');
     // $('#block1').addClass('hidden');
     if (tops){
-        window.scrollTo({top: 10, behavior:"smooth"});
+        window.scrollTo({top: 80, behavior:"smooth"});
         console.log(tops);
         tops = false
     }//scrolls down when next page loads
@@ -19,33 +19,34 @@ function loadNextPage(){
          $("#leading-text").animate(
         {
         fontSize: "50px",
-        marginTop: "0px",
-        marginLeft: "0px",
-        fontWeight: "700",
-        paddingTop: '550px',
-        paddingBottom: '200px'
+        paddingLeft: "50px",
+        // fontWeight: "700",
           },
-        2000
+        3000
+        , 'swing'
         );
 
         $('#leading-text-container').animate({
-            marginTop: "-100%",
+            marginTop: "-110%",
             marginLeft: "0%",
             width: '100%',
-            height: '134vh',
-        }, 2000)
+        }, 3000, 'swing')
 
         setTimeout(() => {
             $('#leading-text-container').animate({
             marginTop: "-120%",
-        }, 500)
+            }, 400)
+
+            $('#leading-text').animate({
+                fontWeight: "700",
+            },300)
 
             $('#content').removeClass('hidden')
-        }, 1500)
+        }, 500)
 
         setTimeout(() => {
             $('#first-section').addClass('hidden')
-            }, 3400)
+            }, 3000)
         setTimeout(() => {
         $('#nav-bar').css('color', 'black')
         // $('#bg').css('paddingTop','60px')
@@ -72,20 +73,21 @@ function loadPreviousPage(){
        fontWeight: "1000",
        padding: '20px'
          },
-       2000
+       100,
+       'linear'
        );
 
        $('#leading-text-container').animate({
-           marginTop: "-8850px",
-           marginLeft: "0%",
+           marginTop: "-6550px",
+           marginLeft: "-1800%",
            width: '100%',
            height: '100%',
-       }, 2000)
+       }, 500)
 
        setTimeout(() => {
 
            $('#content').addClass('hidden')
-       }, 2100)
+       }, 500)
        
 
        setTimeout(() => {
@@ -96,11 +98,11 @@ function loadPreviousPage(){
        
        setTimeout(() => {
        $('#nav-bar').css('color', 'white')
-       }, 1500) // change color of links in nav-bar
+       }, 100) // change color of links in nav-bar
        setTimeout(() =>{
         $('#leading-text-container').css('display','none')
         $('#leading-text-container').css('marginLeft','300px')
-       },2100);
+       },100);
        
    }
     
