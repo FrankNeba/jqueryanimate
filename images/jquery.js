@@ -31,7 +31,7 @@ function loadNextPage() {
         }, 3000, 'swing');
 
         $('#leading-text').animate({
-            paddingTop: "510px",
+            paddingTop: "300px",
         }, 400);
 
         // Animate block1 to scroll up and fade out
