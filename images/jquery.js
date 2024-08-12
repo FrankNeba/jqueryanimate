@@ -25,8 +25,8 @@ function loadNextPage() {
         );
 
         $('#leading-text-container').animate({
-            marginTop: "0px",  // Changed from percentage to pixels
-            marginLeft: "0px", // Changed from percentage to pixels
+            marginTop: "0px",  
+            marginLeft: "0px", 
             fontSize: "50px",
         }, 3000, 'swing');
 
@@ -60,31 +60,17 @@ function loadNextPage() {
     }
 
     nextpage = true;
+    tops = false
 }
 
 function loadPreviousPage() {
     if ($(window).scrollTop()<10) {
         console.log('Loading previous page...');
 
-        // Ensure the text container is visible and reset its position
-        // $('#leading-text-container').css({
-        //     display: 'flex',
-        //     marginTop: "-6550px", // Changed from percentage to pixels
-        //     marginLeft: "-1830px", // Changed from percentage to pixels
-        //     fontSize: "5500px",
-        // });
-
-        // $('#leading-text').css({
-        //     paddingTop: "550px",
-        //     paddingLeft: "0px",
-        //     paddingBottom: "200px",
-        //     fontWeight: "1000",
-        // });
-
         // Animate leading text to fade out and scroll up
         $('#leading-text-container').animate({
-            marginTop: "-6850px", // Changed from percentage to pixels
-            marginLeft: "-21830px", // Changed from percentage to pixels
+            marginTop: "-6850px", 
+            marginLeft: "-21830px", 
             fontSize: "5500px",
         }, 3000, 'swing');
 
@@ -108,7 +94,7 @@ function loadPreviousPage() {
             $('#nav-bar').css('color', 'white');
         }, 2500);
 
-        animate = true;
+        animate = false;
         tops = true;
         nextpage = false; // Reset to allow the next page transition
     }
